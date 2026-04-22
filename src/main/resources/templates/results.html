@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Election Results</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 850px;
+            margin: 50px auto;
+        }
+
+        .card {
+            background: white;
+            color: black;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        h1 {
+            text-align: center;
+            color: #1e3c72;
+            margin-bottom: 25px;
+        }
+
+        .result-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f3f7ff;
+            border-left: 6px solid #2a5298;
+            padding: 16px 20px;
+            margin-bottom: 14px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .votes {
+            background: #2a5298;
+            color: white;
+            padding: 7px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .empty {
+            text-align: center;
+            color: gray;
+            font-size: 18px;
+            padding: 20px;
+        }
+
+        .btn-box {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            background: #1e3c72;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            margin: 8px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #163060;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+        <h1>📊 Live Election Results</h1>
+
+        <div th:if="${#lists.isEmpty(results)}" class="empty">
+            No votes yet!
+        </div>
+
+        <div th:each="result : ${results}" class="result-box">
+            <span th:text="${result.split(' - ')[0]}"></span>
+            <span class="votes" th:text="${result.split(' - ')[1]}"></span>
+        </div>
+
+        <div class="btn-box">
+            <a href="/" class="btn">⬅ Back to Home</a>
+            <a href="/winner-page" class="btn">🏆 View Winner</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

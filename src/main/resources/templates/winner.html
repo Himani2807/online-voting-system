@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Election Winner</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #fff3e0, #f3e5f5);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 60px auto;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+            text-align: center;
+        }
+
+        h1 {
+            color: #e65100;
+            margin-bottom: 25px;
+        }
+
+        .winner-text {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2e7d32;
+            background: #f1f8e9;
+            padding: 20px;
+            border-radius: 14px;
+            border: 2px solid #aed581;
+        }
+
+        .btn-box {
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            background: #1565c0;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            margin: 8px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #0d47a1;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+        <h1>🏆 Election Winner</h1>
+        <div class="winner-text" th:text="${winner}"></div>
+
+        <div class="btn-box">
+            <a href="/" class="btn">⬅ Back to Home</a>
+            <a href="/results-page" class="btn">📊 View Results</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
