@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Online Voting System</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #bbdefb, #f8bbd0);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 650px;
+            margin: 50px auto;
+        }
+
+        .card {
+            background: white;
+            border-radius: 18px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #0d47a1;
+            margin-bottom: 25px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #1565c0;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0d47a1;
+        }
+
+        .links {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .links a {
+            display: inline-block;
+            text-decoration: none;
+            background: #2e7d32;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 10px;
+            margin: 5px;
+        }
+
+        .links a:hover {
+            background: #1b5e20;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+        <h1>🗳️ Online Voting System</h1>
+
+        <form action="/vote" method="post">
+            <input type="text" name="name" placeholder="Enter your name" required>
+            <input type="email" name="email" placeholder="Enter your email" required>
+
+            <select name="candidateId" required>
+                <option value="">Select Candidate</option>
+                <option value="1">Narendra Modi (BJP)</option>
+                <option value="2">Arvind Kejriwal (AAP)</option>
+                <option value="3">Rahul Gandhi (Congress)</option>
+                <option value="4">Conrad Sangma (NPP)</option>
+            </select>
+
+            <button type="submit">Vote Now</button>
+        </form>
+
+        <div class="links">
+            <a href="/results-page">📊 View Results</a>
+            <a href="/winner-page">🏆 View Winner</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
